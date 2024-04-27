@@ -6,7 +6,7 @@
 #    By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 07:09:36 by emgul             #+#    #+#              #
-#    Updated: 2024/04/27 15:26:42 by emgul            ###   ########.fr        #
+#    Updated: 2024/04/27 16:09:45 by emgul            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME			=	pipex.a
 BONUS_NAME		=	pipex_bonus.a
 
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -I lib/libft/ -I lib/get_next_line/
+CFLAGS			=	-Wall -Wextra -Werror -I lib/libft/ -I lib/get_next_line/ 
 AR				=	ar rcs
 RM				=	rm -f
 
