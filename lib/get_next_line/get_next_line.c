@@ -6,17 +6,17 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 22:01:08 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/11 00:15:50 by emgul            ###   ########.fr       */
+/*   Updated: 2024/04/27 15:51:12 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <unistd.h>
 
-char *ft_append_to_left(int fd, char *input_str)
+char	*ft_append_to_left(int fd, char *input_str)
 {
-	char *buffer;
-	int bytes_read;
+	char	*buffer;
+	int		bytes_read;
 
 	if (!input_str)
 	{
@@ -31,7 +31,7 @@ char *ft_append_to_left(int fd, char *input_str)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			break;
+			break ;
 		buffer[bytes_read] = '\0';
 		input_str = ft_strjoin_gnl(input_str, buffer);
 	}
@@ -39,11 +39,11 @@ char *ft_append_to_left(int fd, char *input_str)
 	return (input_str);
 }
 
-char *ft_get_line(char *input_str)
+char	*ft_get_line(char *input_str)
 {
-	char *newline_ptr;
-	char *string;
-	size_t length;
+	char	*newline_ptr;
+	char	*string;
+	size_t	length;
 
 	if (!input_str || !*input_str)
 		return (NULL);

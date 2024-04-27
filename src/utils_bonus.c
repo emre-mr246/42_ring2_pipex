@@ -6,14 +6,13 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 23:11:27 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/11 00:00:05 by emgul            ###   ########.fr       */
+/*   Updated: 2024/04/27 15:14:05 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libft/libft.h"
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 void	input_error(void)
 {

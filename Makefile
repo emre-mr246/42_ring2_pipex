@@ -6,7 +6,7 @@
 #    By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 07:09:36 by emgul             #+#    #+#              #
-#    Updated: 2024/04/11 07:28:37 by emgul            ###   ########.fr        #
+#    Updated: 2024/04/27 15:26:42 by emgul            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ BONUS_FILES		=	pipex_bonus \
 					utils_bonus
 
 NAME			=	pipex.a
+BONUS_NAME		=	pipex_bonus.a
+
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -I lib/libft/ -I lib/get_next_line/ # -Werror
+CFLAGS			=	-Wall -Wextra -Werror -I lib/libft/ -I lib/get_next_line/
 AR				=	ar rcs
 RM				=	rm -f
 
@@ -49,8 +51,8 @@ $(GNL):
 	@make -s -C $(GNL_PATH)
 
 bonus: $(BONUS_OBJS)
-	@$(AR) $(NAME) $^
-	@echo "$(GREEN)-== $(NAME) created! ==- (with bonus)$(DEFAULT)"
+	@$(AR) $(BONUS_NAME) $^
+	@echo "$(GREEN)-== $(BONUS_NAME) created! ==-$(DEFAULT)"
 
 all: $(NAME)
 
@@ -60,6 +62,7 @@ clean:
 
 fclean: clean libclean
 	@$(RM) $(NAME)
+	@$(RM) $(BONUS_NAME)
 	@echo "$(RED)-== all created files deleted! -==$(DEFAULT)"
 
 libclean:

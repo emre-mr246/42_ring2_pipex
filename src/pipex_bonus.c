@@ -6,18 +6,15 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 23:11:24 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/11 00:12:27 by emgul            ###   ########.fr       */
+/*   Updated: 2024/04/27 15:20:23 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libft/libft.h"
 #include "../lib/get_next_line/get_next_line.h"
-#include "../include/pipex_bonus.h"
-#include <sys/types.h>
-#include <stddef.h>
+#include "../include/pipex.h"
 #include <unistd.h>
 #include <fcntl.h>
-#include "stdio.h"
 
 void	child_process(char *argv, char **envp)
 {
@@ -47,8 +44,10 @@ void	read_here_doc(char **argv)
 {
 	int		file;
 	char	*line;
+	char	*temp_file;
 
-	file = open(".here_doc_temp", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	temp_file = ".here_doc_temp";
+	file = open(temp_file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	while (1)
 	{
 		line = get_next_line(0);
@@ -63,7 +62,7 @@ void	read_here_doc(char **argv)
 		free(line);
 	}
 	close(file);
-	file = open(".here_doc_temp", O_RDONLY);
+	file = open(temp_file, O_RDONLY);
 	dup2(file, STDIN_FILENO);
 }
 
@@ -92,5 +91,4 @@ int	main(int argc, char **argv, char **envp)
 		child_process(argv[argv_index++], envp);
 	dup2(out_file, STDOUT_FILENO);
 	execute(argv[argc - 2], envp);
-	remove(".here_doc_temp");
 }

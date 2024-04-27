@@ -6,15 +6,14 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 23:11:26 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/11 00:12:11 by emgul            ###   ########.fr       */
+/*   Updated: 2024/04/27 15:37:27 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-#include <sys/types.h>
-#include <stddef.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <sys/wait.h>
 
 void	child_process(char **argv, char **envp, int *fd)
 {
