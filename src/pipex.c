@@ -6,11 +6,11 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 23:11:26 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/27 16:07:11 by emgul            ###   ########.fr       */
+/*   Updated: 2024/05/02 21:40:16 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../inc/pipex.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/wait.h>

@@ -6,22 +6,23 @@
 #    By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 07:09:36 by emgul             #+#    #+#              #
-#    Updated: 2024/04/27 16:09:45 by emgul            ###   ########.fr        #
+#    Updated: 2024/05/02 20:40:46 by emgul            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES			=	pipex \
-					utils
+					utils \
+					error
 
 BONUS_FILES		=	pipex_bonus \
-					utils_bonus
+					utils \
+					error
 
-NAME			=	pipex.a
-BONUS_NAME		=	pipex_bonus.a
+NAME			=	pipex
+BONUS_NAME		=	pipex_bonus
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror -I lib/libft/ -I lib/get_next_line/ 
-AR				=	ar rcs
 RM				=	rm -f
 
 LIBFT_PATH		=	lib/libft/
@@ -41,17 +42,16 @@ BONUS_OBJS		=	$(BONUS_SRCS:.c=.o)
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS) $(LIBFT) $(GNL)
-	@$(AR) $@ $^
+	gcc $(OBJS) -o $(NAME) lib/libft/libft.a lib/get_next_line/get_next_line.a
 	@echo "$(GREEN)-== $(NAME) created! ==-$(DEFAULT)"
-
 $(LIBFT):
 	@make -s -C $(LIBFT_PATH)
 
 $(GNL):
 	@make -s -C $(GNL_PATH)
 
-bonus: $(BONUS_OBJS)
-	@$(AR) $(BONUS_NAME) $^
+bonus: $(BONUS_OBJS) $(LIBFT) $(GNL)
+	gcc $(BONUS_OBJS) -o $(BONUS_NAME) lib/libft/libft.a lib/get_next_line/get_next_line.a
 	@echo "$(GREEN)-== $(BONUS_NAME) created! ==-$(DEFAULT)"
 
 all: $(NAME)

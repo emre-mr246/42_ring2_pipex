@@ -6,13 +6,13 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 23:11:24 by emgul             #+#    #+#             */
-/*   Updated: 2024/04/27 16:09:24 by emgul            ###   ########.fr       */
+/*   Updated: 2024/05/03 00:57:00 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libft/libft.h"
 #include "../lib/get_next_line/get_next_line.h"
-#include "../include/pipex.h"
+#include "../inc/pipex.h"
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -77,18 +77,19 @@ int	main(int argc, char **argv, char **envp)
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 	{
 		argv_index = 3;
-		out_file = open("f2.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
+		out_file = open(argv[argc - 1], O_WRONLY | O_CREAT | O_APPEND, 0777);
 		read_here_doc(argv);
 	}
 	else
 	{
 		argv_index = 2;
 		in_file = open(argv[1], O_RDWR);
-		out_file = open("f2.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		out_file = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 		dup2(in_file, STDIN_FILENO);
 	}
 	while (argv_index < argc - 2)
 		child_process(argv[argv_index++], envp);
 	dup2(out_file, STDOUT_FILENO);
 	execute(argv[argc - 2], envp);
+	return (0);
 }
