@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/libft.png" alt="Logo" width="150" height="150">
+  <img src="img/pipex.png" alt="Logo" width="150" height="150">
   <h2>42 PIPEX PROJECT</h2>
     <a href= https://github.com/emre-mr246/42-evaluation><img src="https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge"/></a>
     <a href= https://github.com/emre-mr246/42-evaluation><img src="https://img.shields.io/badge/circle-2-magenta?style=for-the-badge"/></a>
